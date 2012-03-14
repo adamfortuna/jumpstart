@@ -1,0 +1,12 @@
+%h2 Forgot your password?
+
+.row
+  .span8
+    = semantic_form_for resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post } do |f|
+      = devise_error_messages!
+      = f.inputs do
+        = f.input :email
+      = f.buttons do
+        = f.commit_button "Send me reset password instructions"
+  .span3.well
+    = render "links"
