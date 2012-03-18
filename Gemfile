@@ -18,12 +18,11 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'bootstrap-sass'
 end
 
 gem 'jquery-rails'
-gem 'bootstrap-sass', '~> 2.0.1'
-gem 'formtastic-bootstrap'
-gem 'twitter-bootstrap-rails'
+gem 'simple_form'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

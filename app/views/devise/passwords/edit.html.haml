@@ -1,0 +1,14 @@
+.row
+  .span8
+    = simple_form_for resource, :as => resource_name, :url => password_path(resource_name), html: { method: :put, class: 'form-horizontal' }  do |f|
+      = f.hidden_field :reset_password_token, as: :hidden
+      %fieldset
+        %legend Change your password
+        = f.input :password, label: 'New Password'
+        = f.input :password_confirmation, label: 'Confirm New Password'
+        .form-actions
+          = f.submit 'Change my password', class: 'btn btn-primary'
+          = link_to 'Cancel', root_path, class: 'btn'
+
+  .span3
+    = render "links"

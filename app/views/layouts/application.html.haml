@@ -1,11 +1,11 @@
 !!!
-%html{:lang => "en"}
+%html{ lang: "en"}
   %head
-    %meta{:charset => "utf-8"}
+    %meta{ charset: "utf-8" }
       %title Bootstrap, from Twitter
-      %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-      %meta{:content => "", :name => "description"}
-      %meta{:content => "", :name => "author"}
+      %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport"}
+      %meta{ content: "", name: "description"}
+      %meta{ content: "", name: "author"}
       = stylesheet_link_tag "application"
       /[if lt IE 9]
         <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,7 +25,8 @@
               - if user_signed_in?
                 %p.navbar-text.pull-right
                   Logged in as
-                  = link_to current_user.email, current_user
+                  = link_to current_user.email, edit_user_registration_path
+                  |
                   = link_to "logout", destroy_user_session_path, method: :delete
               - else
                 %ul.nav
@@ -35,8 +36,10 @@
                     = link_to "Sign Up", new_user_registration_path
     .container
       %div{class: 'flashes group'}
-        - flash.each do |type, message|
-          = flash_message type, message
+        - flash.each do |name, msg|
+          %div{ class: "alert alert-#{name == :notice ? "success" : "error"}"}
+            %a{ class: 'close', :'data-dismiss' => "alert" }
+            = msg
 
       = yield
       %hr
